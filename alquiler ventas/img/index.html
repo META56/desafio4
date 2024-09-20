@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmobiliaria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('familia.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        header {
+            background-color: rgba(244, 244, 244, 0.8); 
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        main {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); 
+        }
+        .propiedad {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .ver-mas {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .ver-mas:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Propiedades en Venta y Alquiler</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="mostrarSeccion('alquiler')">Propiedades en Alquiler</a></li>
+                <li><a href="#" onclick="mostrarSeccion('venta')">Propiedades en Venta</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="contenido">
+        <div id="inicio">
+            <h2>Inicio</h2>
+            <p>Explora nuestras propiedades en alquiler y venta.</p>
+        </div>
+        <div id="alquiler" style="display: none;">
+            <h2>Propiedades en Alquiler</h2>
+            <div id="alquiler-list"></div>
+            <a href="img alquiler/alquiler.html" class="ver-mas">Ver más propiedades en alquiler</a>
+        </div>
+        <div id="venta" style="display: none;">
+            <h2>Propiedades en Venta</h2>
+            <div id="venta-list"></div>
+            <a href="img venta/ventas.html" class="ver-mas">Ver más propiedades en venta</a>
+        </div>
+    </main>
+    <script>
+        const propiedades = {
+            alquiler: [
+                { id: 1, titulo: 'Casa en el centro de la ciudad', precio: '$1200000', descripcion: '3 habitaciones', permitirMascotas: true, permitirFumar: false },
+                { id: 2, titulo: 'Casa iluminada', precio: '$850000', descripcion: '2 habitaciones', permitirMascotas: false, permitirFumar: false },
+                { id: 3, titulo: 'Casa de campo', precio: '$950000', descripcion: '2 habitaciones', permitirMascotas: true, permitirFumar: true }
+            ],
+            venta: [
+                { id: 1, titulo: 'Casa de lujo en zona exclusiva', precio: '$1200000', descripcion: '3 habitaciones', permitirMascotas: false, permitirFumar: false },
+                { id: 2, titulo: 'Casa en el centro de la ciudad', precio: '$850000', descripcion: '2 habitaciones', permitirMascotas: true, permitirFumar: false },
+                { id: 3, titulo: 'Casa de campo', precio: '$950000', descripcion: '4 habitaciones', permitirMascotas: true, permitirFumar: true }
+            ]
+        };
+
+        function mostrarSeccion(seccion) {
+            document.getElementById('inicio').style.display = 'none';
+            document.getElementById('alquiler').style.display = 'none';
+            document.getElementById('venta').style.display = 'none';
+            document.getElementById(seccion).style.display = 'block';
+            if (seccion === 'alquiler' || seccion === 'venta') {
+                cargarPropiedades(seccion);
+            }
+        }
+
+        function cargarPropiedades(tipo) {
+            const lista = document.getElementById(tipo + '-list');
+            while (lista.firstChild) {
+                lista.removeChild(lista.firstChild);
+            }
+            propiedades[tipo].forEach(propiedad => {
+                const div = document.createElement('div');
+                div.classList.add('propiedad');
+                div.innerHTML = `
+                    <h3>${propiedad.titulo}</h3>
+                    <p>Precio: ${propiedad.precio}</p>
+                    <p>${propiedad.descripcion}</p>
+                    <p>Mascotas: ${propiedad.permitirMascotas ? 'Sí' : 'No'}</p>
+                    <p>Permite fumar: ${propiedad.permitirFumar ? 'Sí' : 'No'}</p>
+                `;
+                lista.appendChild(div);
+            });
+        }
+
+        mostrarSeccion('inicio');
+    </script>
+</body>
+</html>

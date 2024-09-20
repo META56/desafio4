@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades en Venta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .property {
+            display: flex;
+            align-items: flex-start;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .property img {
+            width: 200px; /* Ajusta el ancho de la imagen */
+            height: 200px; /* Ajusta la altura de la imagen */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .property .description {
+            flex: 1;
+        }
+        .property h2 {
+            color: #333;
+        }
+        .property p {
+            margin: 5px 0;
+        }
+        .highlight-yes {
+            font-weight: bold;
+            color: #2ecc71; /* Verde para "Sí" */
+        }
+        .highlight-no {
+            font-weight: bold;
+            color: #e74c3c; /* Rojo para "No" */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Propiedades en Venta</h1>
+
+    <div class="property">
+        <div class="description">
+            <h2>Casa de lujo en zona exclusíva</h2>
+            <p><strong>Descripción:</strong> Hermosa casa , ideal para disfrutar de la tranquilidad.</p>
+            <p><strong>Ubicación:</strong> viña, chile</p>
+            <p><strong>Habitaciones:</strong> 3</p>
+            <p><strong>Costo:</strong> $1,200,000 </p>
+            <p><strong>¿Permite fumar?</strong> <span class="highlight-no">No</span></p>
+            <p><strong>¿Mascotas permitidas?</strong> <span class="highlight-yes">Sí</span></p>
+        </div>
+        
+        <img src="img1.jpg" alt="Casa en la Playa">
+    </div>
+
+    <div class="property">
+        <div class="description">
+            <h2>casa en el centro de la ciudad </h2>
+            <p><strong>Descripción:</strong> Moderna casa en el centro de la ciudad, cerca de todo.</p>
+            <p><strong>Ubicación:</strong> Ciudad de santiago, santiago</p>
+            <p><strong>Habitaciones:</strong> 2</p>
+            <p><strong>Costo:</strong> $850,000 </p>
+            <p><strong>¿Permite fumar?</strong> <span class="highlight-yes">Sí</span></p>
+            <p><strong>¿Mascotas permitidas?</strong> <span class="highlight-no">No</span></p>
+        </div>
+        
+        <img src="img2.jpg" alt="Departamento en la Ciudad">
+    </div>
+
+    <div class="property">
+        <div class="description">
+            <h2>Casa de Campo</h2>
+            <p><strong>Descripción:</strong> Acogedora casa .</p>
+            <p><strong>Ubicación:</strong> Las condes, santiago</p>
+            <p><strong>Habitaciones:</strong> 4</p>
+            <p><strong>Costo:</strong> $950,000 </p>
+            <p><strong>¿Permite fumar?</strong> <span class="highlight-no">No</span></p>
+            <p><strong>¿Mascotas permitidas?</strong> <span class="highlight-yes">Sí</span></p>
+        </div>
+       
+        <img src="img3.jpg" alt="Casa de Campo">
+    </div>
+
+</body>
+</html>
